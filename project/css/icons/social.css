@@ -1,0 +1,23 @@
+/* Social Media Icons */
+.facebook-icon {
+    top: 15%;
+    left: 20%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzE4NzdGMiIgZD0iTTI0IDEyLjA3M2MwLTYuNjI3LTUuMzczLTEyLTEyLTEycy0xMiA1LjM3My0xMiAxMmMwIDUuOTkgNC4zODggMTAuOTU0IDEwLjEyNSAxMS44NTR2LTguMzg1SDcuMDc4di0zLjQ3aDMuMDQ3VjkuNDNjMC0zLjAwNyAxLjc5Mi00LjY2OSA0LjUzMy00LjY2OSAxLjMxMiAwIDIuNjg2LjIzNSAyLjY4Ni4yMzV2Mi45NTNoLTEuNTFjLTEuNDkgMC0xLjk1NS45MjUtMS45NTUgMS44NzR2Mi4yNWgzLjMyOGwtLjUzMiAzLjQ3aC0yLjc5NnY4LjM4NUMxOS42MTIgMjMuMDI3IDI0IDE4LjA2MiAyNCAxMi4wNzN6Ii8+PC9zdmc+');
+    animation: float 6s ease-in-out infinite;
+}
+
+.instagram-icon {
+    bottom: 25%;
+    right: 15%;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: floatRight 7s ease-in-out infinite;
+}
+
+.twitter-icon {
+    top: 40%;
+    right: 25%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzFEQTFGMiIgZD0iTTIzLjk1MyA0LjU3YTEwIDEwIDAgMDEtMi44Mi43NzIgNC45OCA0Ljk4IDAgMDAyLjE4LTIuNzIgOS45MzYgOS45MzYgMCAwMS0zLjEyIDEuMTlBNC45MiA0LjkyIDAgMDAxNi42MyAyYTQuOTMgNC45MyAwIDAwLTQuNzk2IDYuMDQ5QTEzLjk4IDEzLjk4IDAgMDExLjY3IDMuMTQ5YTQuOTMgNC45MyAwIDAwMS41MjQgNi41NzQgNC45MDMgNC45MDMgMCAwMS0yLjIyOS0uNjE2di4wNmE0LjkyIDQuOTIgMCAwMDMuOTQ2IDQuODI3IDQuOTM1IDQuOTM1IDAgMDEtMi4yMjQuMDg1IDQuOTI4IDQuOTI4IDAgMDA0LjYgMy40MkE5Ljg3NSA5Ljg3NSAwIDAxMCAxOC41NDEgMTMuOTMgMTMuOTMgMCAwMDcuNTQ4IDIxYzkuMDU3IDAgMTQuMDA5LTcuNTAzIDE0LjAwOS0xNC4wMDkgMC0uMjEzLS4wMDUtLjQyNi0uMDE1LS42MzcuOTYxLS42OTMgMS43OTctMS41NTggMi40NTctMi41NDl6Ii8+PC9zdmc+');
+    animation: float 8s ease-in-out infinite;
+}

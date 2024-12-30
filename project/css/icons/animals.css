@@ -1,0 +1,21 @@
+/* Animal Icons */
+.cat-icon {
+    top: 15%;
+    right: 15%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmOTgwMCIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDEyLjVjLS44MyAwLTEuNS0uNjctMS41LTEuNXMuNjctMS41IDEuNS0xLjUgMS41LjY3IDEuNSAxLjUtLjY3IDEuNS0xLjUgMS41em00IDBjLS44MyAwLTEuNS0uNjctMS41LTEuNXMuNjctMS41IDEuNS0xLjUgMS41LjY3IDEuNSAxLjUtLjY3IDEuNS0xLjUgMS41eiIvPjwvc3ZnPg==');
+    animation: float 7s ease-in-out infinite;
+}
+
+.dog-icon {
+    bottom: 25%;
+    left: 20%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2Jyb3duIiBkPSJNMTggNGwtMi0ySDhMNiA0SDJhMiAyIDAgMDAtMiAydjEyYTIgMiAwIDAwMiAyaDE2YTIgMiAwIDAwMi0yVjZhMiAyIDAgMDAtMi0yem0tOCAxMmMtMi43NiAwLTUtMi4yNC01LTVzMi4yNC01IDUtNSA1IDIuMjQgNSA1LTIuMjQgNS01IDV6Ii8+PC9zdmc+');
+    animation: floatRight 8s ease-in-out infinite;
+}
+
+.bird-icon {
+    top: 55%;
+    left: 30%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzAwYjBmZiIgZD0iTTIyIDEwTDEyIDJ2M0M3IDUgMiA3IDIgMTVoNWMwIDUgMy41IDcgNyA3di0zTDIyIDEweiIvPjwvc3ZnPg==');
+    animation: float 9s ease-in-out infinite;
+}

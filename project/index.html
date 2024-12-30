@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Autenticação</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="background-container">
+        <!-- Tech Icons -->
+        <div class="floating-icon wifi-icon"></div>
+        <div class="floating-icon router-icon"></div>
+        <div class="floating-icon server-icon"></div>
+        <div class="floating-icon database-icon"></div>
+        
+        <!-- Social Media Icons -->
+        <div class="floating-icon linkedin-icon"></div>
+        <div class="floating-icon pinterest-icon"></div>
+        <div class="floating-icon tiktok-icon"></div>
+        
+        <!-- Music Icons -->
+        <div class="floating-icon vinyl-icon"></div>
+        <div class="floating-icon piano-icon"></div>
+        <div class="floating-icon guitar-icon"></div>
+        
+        <!-- Animal Icons -->
+        <div class="floating-icon penguin-icon"></div>
+        <div class="floating-icon fox-icon"></div>
+        <div class="floating-icon owl-icon"></div>
+        
+        <!-- Lifestyle Icons -->
+        <div class="floating-icon coffee-icon"></div>
+        <div class="floating-icon book-icon"></div>
+        <div class="floating-icon camera-icon"></div>
+        
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <img src="images/logo.png" alt="Logo da Empresa" class="company-logo">
+            <h1>Bem-vindo</h1>
+            <p class="welcome-message">SE VOCÊ É UM CLIENTE ATHON TELECOM DIGITE O SEU CPF</p>
+            <form id="loginForm" action="http://$PORTAL_ACTION$" method="post">
+                <input type="hidden" name="redirect_url" value="$PORTAL_REDIRECT$">
+                
+                <div class="input-group">
+                    <label for="cpf">CPF:</label>
+                    <input 
+                        type="text" 
+                        id="cpf" 
+                        name="cpf" 
+                        required
+                    >
+                </div>
+
+                <button type="submit">Conectar</button>
+                
+                <!-- Novo link de inscreva-se -->
+                <a href="cadastro.html" class="signup-message">Se ainda não é nosso cliente Inscreva-se</a>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+
+    <script src="js/cpf-validator.js"></script>
+</body>
+</html>
