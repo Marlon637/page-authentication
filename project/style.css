@@ -25,6 +25,8 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 400px;
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    max-height: 80vh; /* Limita a altura máxima da caixa */
 }
 
 h1 {
@@ -93,9 +95,17 @@ button[type="submit"] {
     font-size: 14px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .login-box {
         padding: 20px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 15px;
+        max-width: 95%;
     }
 
     h1 {
