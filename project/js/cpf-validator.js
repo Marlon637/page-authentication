@@ -1,9 +1,10 @@
-document.getElementById('cpf').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 11) {
-        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-        e.target.value = value;
-    }
+document.getElementById('cpf').addEventListener('input', function (e) {
+    let value = e.target.value;
+    value = value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona ponto após os primeiros 3 dígitos
+    value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona ponto após os próximos 3 dígitos
+    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona traço antes dos últimos 2 dígitos
+    e.target.value = value;
 });
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
