@@ -52,11 +52,12 @@
                     type="text" 
                     id="cpf" 
                     name="cpf" 
+                    placeholder="Digite seu CPF"
                     required
                 >
             </div>
 
-            <button type="submit">Conectar</button>
+            <button type="button" onclick="redirectToTerms()">Conectar</button>
             
             <!-- Novo link de inscreva-se -->
             <a href="cadastro.html" class="signup-message">Se ainda não é nosso cliente Inscreva-se</a>
@@ -69,5 +70,10 @@
 </div>
 
     <script src="js/cpf-validator.js"></script>
+    <script>
+        function redirectToTerms() {
+            window.location.href = 'termos.html';
+        }
+    </script>
 </body>
 </html>
