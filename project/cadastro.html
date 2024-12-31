@@ -4,67 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-container">
-        <!-- Tech Icons -->
-        <div class="floating-icon wifi-icon"></div>
-        <div class="floating-icon router-icon"></div>
-        <div class="floating-icon server-icon"></div>
-        <div class="floating-icon database-icon"></div>
-        
-        <!-- Social Media Icons -->
-        <div class="floating-icon linkedin-icon"></div>
-        <div class="floating-icon pinterest-icon"></div>
-        <div class="floating-icon tiktok-icon"></div>
-        
-        <!-- Music Icons -->
-        <div class="floating-icon vinyl-icon"></div>
-        <div class="floating-icon piano-icon"></div>
-        <div class="floating-icon guitar-icon"></div>
-        
-        <!-- Animal Icons -->
-        <div class="floating-icon penguin-icon"></div>
-        <div class="floating-icon fox-icon"></div>
-        <div class="floating-icon owl-icon"></div>
-        
-        <!-- Lifestyle Icons -->
-        <div class="floating-icon coffee-icon"></div>
-        <div class="floating-icon book-icon"></div>
-        <div class="floating-icon camera-icon"></div>
-        
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-
     <div class="container">
         <div class="login-box">
             <h1>Cadastro</h1>
-            <p class="welcome-message">Preencha os campos abaixo para se cadastrar</p>
-            <form id="signupForm" action="http://$PORTAL_ACTION$" method="post">
+            <form id="cadastroForm" action="http://$PORTAL_ACTION$" method="post">
+                <input type="hidden" name="redirect_url" value="$PORTAL_REDIRECT$">
+                
                 <div class="input-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <label for="nome">Nome</label>
+                    <input 
+                        type="text" 
+                        id="nome" 
+                        name="nome" 
+                        placeholder="Digite seu nome"
+                        required
+                    >
                 </div>
+                
                 <div class="input-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Digite seu email"
+                        required
+                    >
                 </div>
+                
                 <div class="input-group">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" required>
+                    <label for="cpf">CPF</label>
+                    <input 
+                        type="text" 
+                        id="cpf" 
+                        name="cpf" 
+                        placeholder="Digite seu CPF"
+                        required
+                    >
                 </div>
-                <div class="input-group">
-                    <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" required>
+
+                <div class="terms-link">
+                    <p>Leia nossos <a href="termos.html" target="_blank">Termos e Condições</a>.</p>
                 </div>
-                <button type="submit">Cadastrar TESTE</button>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="acceptTermsCheckbox">
+                    <label for="acceptTermsCheckbox">Eu li e aceito os termos</label>
+                </div>
+
+                <button type="submit" id="submitButton" style="display: none;">Cadastrar</button>
             </form>
             <div id="error-message" class="error-message"></div>
+            <p class="powered-by">Powered by ATHON NETWORKS</p>
         </div>
     </div>
 
     <script src="js/cpf-validator.js"></script>
+    <script>
+        document.getElementById('acceptTermsCheckbox').addEventListener('change', function() {
+            document.getElementById('submitButton').style.display = this.checked ? 'block' : 'none';
+        });
+    </script>
 </body>
 </html>
