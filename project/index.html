@@ -38,32 +38,35 @@
         <div class="wave"></div>
     </div>
 
-    <div class="container">
-        <div class="login-box">
-            <img src="images/logo.png" alt="Logo da Empresa" class="company-logo">
-            <h1>Bem-vindo</h1>
-            <p class="welcome-message">SE VOCÊ É UM CLIENTE ATHON TELECOM DIGITE O SEU CPF</p>
-            <form id="loginForm" action="http://$PORTAL_ACTION$" method="post">
-                <input type="hidden" name="redirect_url" value="$PORTAL_REDIRECT$">
-                
-                <div class="input-group">
-                    <label for="cpf">CPF:</label>
-                    <input 
-                        type="text" 
-                        id="cpf" 
-                        name="cpf" 
-                        required
-                    >
-                </div>
+<div class="container">
+    <div class="login-box">
+        <img src="images/logo.png" alt="Logo da Empresa" class="company-logo">
+        <h1>Bem-vindo</h1>
+        <p class="welcome-message">CLIENTE ATHON TELECOM DIGITE O SEU CPF</p>
+        <form id="loginForm" action="http://$PORTAL_ACTION$" method="post">
+            <input type="hidden" name="redirect_url" value="$PORTAL_REDIRECT$">
+            
+            <div class="input-group">
+                <label for="cpf"></label>
+                <input 
+                    type="text" 
+                    id="cpf" 
+                    name="cpf" 
+                    required
+                >
+            </div>
 
-                <button type="submit">Conectar</button>
-                
-                <!-- Novo link de inscreva-se -->
-                <a href="cadastro.html" class="signup-message">Se ainda não é nosso cliente Inscreva-se</a>
-            </form>
-            <div id="error-message" class="error-message"></div>
-        </div>
+            <button type="submit">Conectar</button>
+            
+            <!-- Novo link de inscreva-se -->
+            <a href="cadastro.html" class="signup-message">Se ainda não é nosso cliente Inscreva-se</a>
+        </form>
+        <div id="error-message" class="error-message"></div>
+        
+        <!-- Powered by ATHON NETWORK -->
+        <p class="powered-by">Powered by ATHON NETWORKS</p>
     </div>
+</div>
 
     <script src="js/cpf-validator.js"></script>
 </body>
