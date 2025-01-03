@@ -60,22 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Buscar número de sessões ativas da API
-    fetchActiveSessions();
+    // Simulação de atualização em tempo real
+    setInterval(updateRandomStats, 5000);
 });
-
-// Função para buscar número de sessões ativas da API
-function fetchActiveSessions() {
-    fetch('http://localhost:5000/api/active-sessions')
-        .then(response => response.json())
-        .then(data => {
-            const activeSessions = document.getElementById('activeSessions');
-            activeSessions.textContent = data.active_sessions;
-        })
-        .catch(error => {
-            console.error('Erro ao buscar número de sessões ativas:', error);
-        });
-}
 
 // Função para atualizar estatísticas aleatoriamente
 function updateRandomStats() {
