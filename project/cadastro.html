@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/components/popup.css">
 </head>
 <body>
     <div class="container">
         <div class="login-box">
             <h1>Cadastro</h1>
-            <form id="cadastroForm" action="http://$PORTAL_ACTION$" method="post">
-                <input type="hidden" name="redirect_url" value="$PORTAL_REDIRECT$">
+            <form id="cadastroForm" action="{{ url_for('cadastro') }}" method="post">
+                <input type="hidden" name="redirect_url" value="{{ url_for('index') }}">
                 
                 <div class="input-group">
                     <label for="nome">Nome</label>
@@ -47,11 +48,11 @@
                 </div>
 
                 <div class="terms-link">
-                    <p>Leia nossos <a href="termos.html" target="_blank">Termos e Condições</a>.</p>
+                    <p>Leia nossos <a href="#" id="openTermsModal">Termos e Condições</a>.</p>
                 </div>
 
                 <div class="checkbox-container">
-                    <input type="checkbox" id="acceptTermsCheckbox">
+                    <input type="checkbox" id="acceptTermsCheckbox" disabled>
                     <label for="acceptTermsCheckbox">Eu li e aceito os termos</label>
                 </div>
 
@@ -62,11 +63,25 @@
         </div>
     </div>
 
-    <script src="js/cpf-validator.js"></script>
-    <script>
-        document.getElementById('acceptTermsCheckbox').addEventListener('change', function() {
-            document.getElementById('submitButton').style.display = this.checked ? 'block' : 'none';
-        });
-    </script>
+    <!-- Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeTermsModal">&times;</span>
+            <h2>Termos e Condições</h2>
+            <div class="terms-content">
+                <p>Eu, [Nome], portador do CPF [CPF], declaro que li e aceito os seguintes termos de uso:</p>
+                <p>1. Comprometo-me a fornecer informações verídicas.</p>
+                <p>2. Concordo com o uso dos meus dados apenas para fins desta aplicação.</p>
+                <p>3. Respeitarei as políticas de uso do sistema.</p>
+                <p>Aceito os termos nesta data: [Data].</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                 
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
