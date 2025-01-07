@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de CPF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>Validação de CPF</h1>
+            <!-- Formulário com integração assíncrona -->
+            <form id="cpfForm">
+                <div class="input-group">
+                    <label for="cpf">CPF</label>
+                    <input 
+                        type="text" 
+                        id="cpf" 
+                        name="cpf" 
+                        placeholder="Digite seu CPF"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Conectar</button>
+                
+                <!-- Novo link de inscreva-se -->
+                <a href="{{ url_for('cadastro') }}" class="signup-message">Se ainda não é nosso cliente Inscreva-se</a>
+            </form>
+            <div id="error-message" class="error-message">
+                <!-- Mostra mensagens de erro ou sucesso -->
+            </div>
+            
+            <!-- Powered by ATHON NETWORK -->
+            <p class="powered-by">Powered by ATHON NETWORKS</p>
+        </div>
+    </div>
+
+    <!-- Modal de Boas-vindas -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeWelcomeModal">&times;</span>
+            <h2>Bem-vindo!</h2>
+            <p>Você pode navegar na internet.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeWelcomeModal = document.getElementById('closeWelcomeModal');
+            const welcomeModal = document.getElementById('welcomeModal');
+            const cpfForm = document.getElementById('cpfForm');
+            const errorMessage = document.getElementById('error-message');
+
+            closeWelcomeModal.addEventListener('click', function() {
+                welcomeModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == welcomeModal) {
+                    welcomeModal.style.display = 'none';
+                }
+            });
+
+            // Gerenciar envio assíncrono do formulário
+            cpfForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Previne o envio padrão do formulário
+                errorMessage.innerHTML = ''; // Limpa mensagens anteriores
+                
+                const cpf = document.getElementById('cpf').value;
+
+                if (!cpf) {
+                    errorMessage.innerHTML = '<p style="color: red;">CPF é obrigatório.</p>';
+                    return;
+                }
+
+                try {
+                    const response = await fetch('{{ url_for("validar") }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({ cpf }),
+                    });
+
+                    if (response.redirected) {
+                        // Redirecionar o usuário se necessário (como para a página de cadastro)
+                        window.location.href = response.url;
+                    } else {
+                        const result = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(result, 'text/html');
+                        
+                        const successMessage = doc.querySelector('.success-message');
+                        const errorMessageHtml = doc.querySelector('.error-message');
+                        
+                        if (successMessage) {
+                            errorMessage.innerHTML = `<p style="color: green;">${successMessage.textContent}</p>`;
+                            welcomeModal.style.display = 'block'; // Exibe o modal de boas-vindas
+                        } else if (errorMessageHtml) {
+                            errorMessage.innerHTML = `<p style="color: red;">${errorMessageHtml.textContent}</p>`;
+                        }
+                    }
+                } catch (error) {
+                    errorMessage.innerHTML = '<p style="color: red;">Erro ao autenticar. Tente novamente mais tarde.</p>';
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

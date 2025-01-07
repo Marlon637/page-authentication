@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/components/popup.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/popup.css') }}">
 </head>
 <body>
     <div class="container">
@@ -24,7 +24,7 @@
                         required
                     >
                 </div>
-                
+
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input 
@@ -35,7 +35,7 @@
                         required
                     >
                 </div>
-                
+
                 <div class="input-group">
                     <label for="cpf">CPF</label>
                     <input 
@@ -52,7 +52,11 @@
                 </div>
 
                 <div class="checkbox-container">
-                    <input type="checkbox" id="acceptTermsCheckbox" disabled>
+                    <input 
+                        type="checkbox" 
+                        id="acceptTermsCheckbox" 
+                        onclick="toggleSubmitButton()"
+                    >
                     <label for="acceptTermsCheckbox">Eu li e aceito os termos</label>
                 </div>
 
@@ -64,7 +68,7 @@
     </div>
 
     <!-- Modal -->
-    <div id="termsModal" class="modal">
+    <div id="termsModal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close-button" id="closeTermsModal">&times;</span>
             <h2>Termos e Condições</h2>
@@ -75,13 +79,35 @@
                 <p>3. Respeitarei as políticas de uso do sistema.</p>
                 <p>Aceito os termos nesta data: [Data].</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                 
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Habilita o botão "Cadastrar" quando os termos forem aceitos
+        function toggleSubmitButton() {
+            const checkbox = document.getElementById('acceptTermsCheckbox');
+            const submitButton = document.getElementById('submitButton');
+            submitButton.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // Exibir e ocultar o modal dos termos
+        document.getElementById('openTermsModal').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('termsModal').style.display = 'block';
+        });
+
+        document.getElementById('closeTermsModal').addEventListener('click', function() {
+            document.getElementById('termsModal').style.display = 'none';
+        });
+
+        // Fecha o modal se clicar fora dele
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('termsModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

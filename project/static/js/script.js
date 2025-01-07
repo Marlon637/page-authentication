@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const nomeInput = document.getElementById('nome');
     const emailInput = document.getElementById('email');
     const cpfInput = document.getElementById('cpf');
-
+    
+    // Validar email 
     function validateEmail(email) {
         const genericEmails = ['teste@teste', '123@teste'];
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

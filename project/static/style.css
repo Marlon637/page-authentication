@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-    background: url('images/astronauta.gif') no-repeat center center fixed;
+    background: url('images/city.gif') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
